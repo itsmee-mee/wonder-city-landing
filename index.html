@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Header</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+  <style>
+    /* Smooth slide animation */
+    .slide-in {
+      transform: translateX(0);
+    }
+    .slide-out {
+      transform: translateX(100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white">
+
+  <!-- Ambient Blue & Black Background -->
+<div class="pointer-events-none fixed inset-0 -z-10">
+
+  <!-- Main black base -->
+  <div class="absolute inset-0 bg-black"></div>
+
+  <!-- Blue glows scattered around -->
+  <div class="absolute -left-40 top-20 h-[32rem] w-[32rem] rounded-full bg-blue-800/40 blur-[220px] mix-blend-screen"></div>
+  <div class="absolute -right-48 bottom-0 h-[34rem] w-[34rem] rounded-full bg-blue-600/35 blur-[240px] mix-blend-screen"></div>
+  <div class="absolute left-1/3 bottom-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/30 blur-[200px] mix-blend-screen"></div>
+  <div class="absolute right-1/4 top-1/3 h-[24rem] w-[24rem] rounded-full bg-cyan-500/25 blur-[180px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+
+</div>
+
+
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-white/10 border-b border-white/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+
+    <!-- LEFT: LOGO -->
+    <a href="/" class="flex items-center">
+      <img 
+        src="assest/wonder.webp" 
+        alt="Logo"
+        class="h-10 w-auto object-contain"
+      />
+    </a>
+
+    <!-- CENTER: ABOUT US (ALWAYS VISIBLE) -->
+    <div class="absolute left-1/2 -translate-x-1/2">
+      <a href="#about" class="text-sm uppercase tracking-widest hover:text-cyan-400 transition">
+        About Us
+      </a>
+    </div>
+
+    <!-- RIGHT: NAV (DESKTOP ONLY) -->
+<nav class="hidden md:flex items-center gap-4">
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Home
+  </a>
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Services
+  </a>
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Event
+  </a>
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Contact
+  </a>
+</nav>
+
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="md:hidden focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+
+  <!-- MOBILE SLIDE MENU -->
+  <div id="mobileMenu"
+  class="fixed top-0 right-0 h-full w-72 bg-black/40 backdrop-blur-xl border-l border-white/20
+         transform translate-x-full transition-transform duration-300 z-50">
+
+  <div class="p-6 flex flex-col gap-8">
+
+    <!-- CLOSE BUTTON -->
+    <button id="closeBtn" class="self-end mb-1">
+      <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+
+    <!-- MENU LINKS -->
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>HOME</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="briefcase" class="w-5 h-5"></i>
+      <span>SERVICES</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="calendar" class="w-5 h-5"></i>
+      <span>EVENTS</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="phone" class="w-5 h-5"></i>
+      <span>CONTACT US</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20">
+
+  <!-- Amusement Park Badge -->
+<div
+    class="inline-block rounded-full ml-4 mt-2 border border-cyan-400/40 bg-white/5 px-4 py-1 text-sm font-medium text-cyan-300 backdrop-blur-sm">
+    AFEMAI WONDER CITY
+</div>
+
+  <!-- Ambient Hero Background -->
+<div class="pointer-events-none absolute inset-0 -z-10">
+
+  <!-- Base dark background -->
+  <div class="absolute inset-0 bg-[#05070a]"></div>
+
+  <!-- Soft scattered blues -->
+  <div class="absolute -left-32 top-16 h-[28rem] w-[28rem] rounded-full bg-blue-700/40 blur-[180px] mix-blend-screen"></div>
+  <div class="absolute right-0 top-32 h-[32rem] w-[32rem] rounded-full bg-blue-500/35 blur-[220px] mix-blend-screen"></div>
+  <div class="absolute left-1/3 bottom-1/4 h-[24rem] w-[24rem] rounded-full bg-cyan-500/30 blur-[160px] mix-blend-screen"></div>
+  <div class="absolute right-1/4 bottom-1/3 h-[26rem] w-[26rem] rounded-full bg-indigo-500/25 blur-[200px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80 pointer-events-none"></div>
+
+</div>
+
+
+  <!-- Content Container -->
+  <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-4 md:grid-cols-2">
+
+    <!-- Left: Text -->
+    <div class="text-left">
+
+      <!-- Main Title -->
+      <h1 class="text-5xl font-semibold tracking-tight text-white">
+        Welcome to
+        <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+          Afemai Wonder City
+        </span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+        Experience Edo State's premier entertainment destination in Auchi, Nigeria - where dreams come alive!
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#experience"
+           class="rounded-full bg-cyan-400 px-6 py-3 text-sm font-medium text-black shadow-lg backdrop-blur-sm transition hover:bg-cyan-500">
+          Explore Our Services
+        </a>
+        <a href="#contact"
+           class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/10">
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Highlight / Marker -->
+      <div class="mt-6 flex items-center gap-3">
+        <div class="h-3 w-3 rounded-full bg-cyan-400 animate-pulse"></div>
+        <span class="text-sm font-medium uppercase text-cyan-300 tracking-wide">
+          Experience the Wonder
+        </span>
+      </div>
+
+      <!-- Additional Description -->
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-slate-300">
+        From thrilling rides and family attractions to luxury lounges and premium dining, Afemai Wonder City brings unforgettable memories for everyone!
+      </p>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="relative">
+      <img src="assest/wondercity.jpg"
+           alt="Afemai Wonder City Hero"
+           class="mx-auto w-full max-w-md rounded-2xl shadow-2xl" />
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- Services / Attractions Section -->
+<section class="relative z-10 mx-auto px-6 py-24 overflow-hidden">
+
+  <!-- Ambient background -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#0f1c4d] to-[#000000]"></div>
+    <div class="absolute -left-32 top-16 h-[28rem] w-[28rem] rounded-full bg-blue-700/30 blur-[180px] mix-blend-screen"></div>
+    <div class="absolute right-0 top-32 h-[32rem] w-[32rem] rounded-full bg-blue-500/25 blur-[220px] mix-blend-screen"></div>
+    <div class="absolute left-1/3 bottom-1/4 h-[24rem] w-[24rem] rounded-full bg-cyan-500/20 blur-[160px] mix-blend-screen"></div>
+    <div class="absolute right-1/4 bottom-1/3 h-[26rem] w-[26rem] rounded-full bg-indigo-500/15 blur-[200px] mix-blend-screen"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 pointer-events-none"></div>
+  </div>
+
+  <!-- Big Writeup / Section Title -->
+  <div class="relative text-center max-w-4xl mx-auto mb-16">
+    <h2 class="text-4xl font-bold text-white mb-4">Our Services</h2>
+    <p class="text-lg text-slate-300 leading-relaxed">
+      Discover the attractions and experiences Afemai Wonder City has to offer for families, friends, and guests of all ages!
+    </p>
+  </div>
+
+  <!-- Services Cards -->
+  <div class="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+    <!-- Card 1 -->
+    <div class="relative">
+      <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+      <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+        <img src="assest/amuse.jpg" alt="Amusement Park" class="mb-4 h-32 w-full object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold text-white mb-2">Amusement Park</h3>
+        <p class="text-slate-300 text-sm mb-2">
+          Exciting rides and family attractions in the heart of Edo State.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="relative">
+      <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+      <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+        <img src="assest/cinema.webp" alt="Cinema" class="mb-4 h-32 w-full object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold text-white mb-2">Cinema</h3>
+        <p class="text-slate-300 text-sm mb-2">
+          Modern cinema experience with latest movies and premium comfort.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="relative">
+      <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+      <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+        <img src="assest/loundge.webp" alt="Lounge" class="mb-4 h-32 w-full object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold text-white mb-2">Lounge</h3>
+        <p class="text-slate-300 text-sm mb-2">
+          Premier lounge for luxury relaxation and entertainment.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="relative">
+      <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+      <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+        <img src="assest/pool.webp" alt="Swimming Pool" class="mb-4 h-32 w-full object-cover rounded-xl" />
+        <h3 class="text-xl font-semibold text-white mb-2">Swimming Pool</h3>
+        <p class="text-slate-300 text-sm mb-2">
+          Refreshing poolside experience with premium drinks and atmosphere.
+        </p>
+      </div>
+    </div>
+
+  <!-- Card 5: Outdoor Bar -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/outdoor.webp" alt="Outdoor Bar" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Outdoor Bar</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Enjoy premium drinks and a relaxed atmosphere under the open sky.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 6: Sports Bar -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/sportbar.jpg" alt="Sports Bar" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Sports Bar</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Premier venue for watching live matches with friends and family.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 7: Restaurant -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/restuarant.jpg" alt="Restaurant" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Restaurant</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Authentic African and international cuisine in a world-class setting.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 8: Pastries & Ice Cream -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/icecream.webp" alt="Pastries & Ice Cream" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Pastries & Ice Cream</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Delightful treats and cold desserts for all ages.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 9: Event Halls -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/eventhall.png" alt="Event Halls" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Event Halls</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Perfect venues for parties, corporate events, and celebrations.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 10: Gaming Arcade -->
+  <div class="relative">
+    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 blur opacity-40 animate-shine"></div>
+    <div class="relative rounded-2xl bg-[#11131a] p-2 shadow-lg hover:shadow-2xl transition-all duration-300 text-center">
+      <img src="assest/gaming.jpg" alt="Gaming Arcade" class="mb-4 h-32 w-full object-cover rounded-xl" />
+      <h3 class="text-xl font-semibold text-white mb-2">Gaming Arcade</h3>
+      <p class="text-slate-300 text-sm mb-2">
+        Fun and excitement for kids and adults with modern arcade games.
+      </p>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- Animate Shine CSS -->
+  <style>
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-shine {
+      animation: shine 10s linear infinite;
+    }
+  </style>
+
+</section>
+
+
+
+<!-- Wonder City Amusement Park Section -->
+<section class="relative z-10 mx-auto px-6 py-24 shadow-xl bg-[#0a0b14] overflow-hidden">
+
+  <!-- Subtle surface light -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent"></div>
+
+  <!-- Left glow -->
+  <div class="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-500/20 blur-[120px] mix-blend-screen"></div>
+
+  <!-- Right glow -->
+  <div class="pointer-events-none absolute -right-36 bottom-0 h-96 w-96 rounded-full bg-cyan-400/15 blur-[140px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+
+  <!-- Content Grid -->
+  <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 md:grid-cols-2">
+
+    <!-- Left: Text -->
+    <div class="text-left">
+      <h2 class="text-4xl font-bold text-white mb-6">
+        Experience Wonder City
+      </h2>
+      <p class="text-lg text-slate-300 mb-4 leading-relaxed">
+        Wonder City is Edo State's premier entertainment destination in Auchi, Nigeria. From thrilling rides and family attractions to luxurious lounges and world-class dining, there's something for everyone.
+      </p>
+      <p class="text-sm text-slate-400 mb-6">
+        Explore our services and make unforgettable memories - from the amusement park, cinema, lounges, outdoor bars, sports venues, to fine dining and arcade fun.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex gap-4 flex-wrap">
+        <a href="#services"
+           class="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-slate-200">
+           Explore Services
+        </a>
+        <a href="#contact"
+           class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
+           Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="relative">
+      <img src="assest/wonderccc.webp" alt="Wonder City Amusement Park"
+           class="mx-auto w-full h-96 max-w-md rounded-2xl object-cover shadow-2xl" />
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- Wonder City Amusement Park Gallery Section -->
+<section class="relative z-10 mx-auto px-6 py-24 shadow-xl bg-[#0a0b14] overflow-hidden">
+
+  <!-- Subtle surface light -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent"></div>
+
+  <!-- Left glow -->
+  <div class="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-500/20 blur-[120px] mix-blend-screen"></div>
+
+  <!-- Right glow -->
+  <div class="pointer-events-none absolute -right-36 bottom-0 h-96 w-96 rounded-full bg-cyan-400/15 blur-[140px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div>
+
+  <!-- Section Header -->
+  <div class="relative text-center max-w-4xl mx-auto mb-16">
+    <h2 class="text-4xl font-bold text-white mb-4">Wonder City Gallery</h2>
+    <p class="text-lg text-slate-300">
+      Explore the thrilling rides, lounges, cinemas, pools, bars, and attractions at Wonder City Amusement Park.
+    </p>
+  </div>
+
+  <!-- Carousel -->
+  <div class="relative overflow-hidden py-6 group">
+    <div id="amusementCarousel" class="flex animate-scroll space-x-6">
+      <img src="assest/cinema.webp" alt="Amusement Park Ride" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/amuse.jpg" alt="Cinema" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/loundge.webp" alt="Lounge" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/outdoor.webp" alt="Swimming Pool" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/pool.webp" alt="Outdoor Bar" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/wonderccc.webp" alt="Sports Bar" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/wondercity.jpg" alt="Restaurant" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/icecream.webp" alt="Gaming Arcade" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <!-- Repeat images for smooth infinite scroll -->
+      <img src="assest/cinema.webp" alt="Amusement Park Ride" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/amuse.jpg" alt="Cinema" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/loundge.webp" alt="Lounge" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/outdoor.webp" alt="Swimming Pool" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/pool.webp" alt="Outdoor Bar" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/wonderccc.webp" alt="Sports Bar" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/wondercity.jpg" alt="Restaurant" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+      <img src="assest/icecream.webp" alt="Gaming Arcade" class="h-48 w-64 object-cover rounded-2xl shadow-2xl cursor-pointer">
+  </div>
+
+  <!-- Modal -->
+  <div id="amusementModal" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50 m-2">
+    <div class="relative max-w-4xl w-full m-15">
+      <img id="amusementModalImg" src="" alt="Attraction" class="rounded-2xl w-full h-auto object-cover">
+      <button id="closeAmusementModal"
+        class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-cyan-400">&times;</button>
+    </div>
+  </div>
+
+  <!-- Styles -->
+  <style>
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    #amusementCarousel {
+      display: flex;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+    }
+    .group:hover #amusementCarousel {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <!-- Script -->
+  <script>
+    const modal = document.getElementById('amusementModal');
+    const modalImg = document.getElementById('amusementModalImg');
+    const closeModal = document.getElementById('closeAmusementModal');
+
+    document.querySelectorAll('#amusementCarousel img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.remove('hidden');
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+  </script>
+
+</section>
+
+
+<!-- FAQ / Visitor Info Section -->
+<section class="relative z-10 mx-auto px-6 py-24 bg-[#0b0d13] overflow-hidden">
+  <div class="relative max-w-4xl mx-auto text-center mb-16">
+    <h2 class="text-4xl font-bold text-white mb-4">Visitor Info & FAQ</h2>
+    <p class="text-lg text-slate-300">
+      Everything you need to know for your visit to Afemai Wonder City: tickets, hours, and park rules.
+    </p>
+  </div>
+
+  <div class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
+    <!-- FAQ 1 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-semibold text-white mb-2">What are the park hours?</h3>
+      <p class="text-slate-300 text-sm">Monday - Sunday: 9:00 AM - 10:00 PM</p>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-semibold text-white mb-2">How much is admission?</h3>
+      <p class="text-slate-300 text-sm">General Admission: ₦3,000 per person. Children under 3 enter free.</p>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-semibold text-white mb-2">Are food & drinks allowed?</h3>
+      <p class="text-slate-300 text-sm">Outside food is not allowed. We have restaurants, outdoor bars, and snack stalls inside.</p>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+      <h3 class="text-xl font-semibold text-white mb-2">Safety rules?</h3>
+      <p class="text-slate-300 text-sm">Follow all ride rules, supervise children, and wear safety equipment where required.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="relative z-10 bg-[#0b0d13]">
+  <div class="text-center max-w-4xl mx-auto mb-12">
+    <h2 class="text-4xl font-bold text-white mb-4">Visitor Testimonials</h2>
+    <p class="text-lg text-slate-300">Families love Afemai Wonder City. Here's what they're saying:</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
+    <!-- Testimonial 1 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition m-2">
+      <p class="text-slate-300 mb-4">"Amazing park! My kids had the best day ever."</p>
+      <span class="text-white font-semibold">– Emeka O.</span>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition m-2">
+      <p class="text-slate-300 mb-4">"The rides are fun and the staff are super friendly."</p>
+      <span class="text-white font-semibold">– Aisha L.</span>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="bg-[#11131a] p-6 rounded-2xl shadow-lg hover:shadow-2xl transition m-2">
+      <p class="text-slate-300 mb-4">"Best amusement park experience in Edo State!"</p>
+      <span class="text-white font-semibold">– John D.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- Location Section -->
+<section class="relative z-10 mx-auto px-6 py-24 bg-[#0b0d13]">
+  <div class="text-center max-w-4xl mx-auto mb-12">
+    <h2 class="text-4xl font-bold text-white mb-4">Find Us</h2>
+    <p class="text-lg text-slate-300">Afemai Wonder City is located in Auchi, Edo State, Nigeria.</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+    <iframe 
+      class="w-full h-96"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5521439249305!2d6.286959474997828!3d7.061789592940726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10467d2d0a80774b%3A0x3ec98bd6577e26d3!2sAFEMAI%20WONDER%20CITY!5e0!3m2!1sen!2sng!4v1770731947045!5m2!1sen!2sng" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+
+
+<!-- Newsletter Section -->
+<section class="relative z-10 px-6 py-24 bg-[#0b0d13] text-center">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl font-bold text-white mb-4">Stay Updated</h2>
+    <p class="text-lg text-slate-300 mb-8">Sign up for news, events, and special offers from Afemai Wonder City.</p>
+
+    <form class="flex flex-col sm:flex-row justify-center gap-4">
+      <input type="email" placeholder="Your Email" 
+             class="rounded-full px-6 py-3 w-full sm:w-auto text-black" />
+      <button type="submit" 
+              class="rounded-full bg-cyan-400 px-6 py-3 text-black font-semibold hover:bg-cyan-500 transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+
+
+
+<!-- Footer Section -->
+<footer class="relative z-10 mx-auto px-6 py-12 bg-[#0b0d13] shadow-xl overflow-hidden">
+
+    <!-- Blue glows scattered around -->
+  <div class="absolute -left-40 top-20 h-[32rem] w-[32rem] rounded-full bg-blue-800/40 blur-[220px] mix-blend-screen"></div>
+  <div class="absolute -right-48 bottom-0 h-[34rem] w-[34rem] rounded-full bg-blue-600/35 blur-[240px] mix-blend-screen"></div>
+  <div class="absolute left-1/3 bottom-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/30 blur-[200px] mix-blend-screen"></div>
+  <div class="absolute right-1/4 top-1/3 h-[24rem] w-[24rem] rounded-full bg-cyan-500/25 blur-[180px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <!-- Left: Writeup -->
+<div class="md:col-span-1 text-center md:text-left">
+    <h2 class="text-2xl font-bold text-white mb-2">AFEMAI WONDER CITY</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">
+        The good side of life, where the memories begin
+    </p>
+
+    <!-- Logo -->
+    <img 
+        src="assest/wonder.webp" 
+        alt="Wonder City Logo" 
+        class="mx-auto md:mx-0 h-25 w-auto object-contain"
+    />
+</div>
+
+
+        <!-- Right: Links -->
+        <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-8">
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Events</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Attractions -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Attractions</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Amusement Park</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Cinema</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Lounge</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Swimming Pool</a></li>
+                </ul>
+            </div>
+
+            <!-- More Attractions -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">More Attractions</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Outdoor Bar</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Sports Bar</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Restaurant</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Pastries & Ice Cream</a></li>
+                </ul>
+            </div>
+
+            <!-- Event & Gaming -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Events & Gaming</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Event Halls</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Gaming Arcade</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Auchi, Edo State</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Note -->
+    <div class="mt-12 text-center text-white/90 text-sm">
+        Nigeria <br>
+        &copy; 2026 Afemai Wonder City. All rights reserved.
+    </div>
+</footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenu.classList.add('translate-x-0');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenu.classList.remove('translate-x-0');
+    });
+  </script>
+
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
