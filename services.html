@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wonder City Experience | Afemai Wonder City</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  .tab-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5f5;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+  }
+  .tab-btn:hover,
+  .tab-btn.active {
+    background: linear-gradient(to right, #22d3ee, #3b82f6);
+    color: white;
+  }
+</style>
+
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+
+<!-- ===== BACKGROUND AMBIENCE ===== -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0 bg-black"></div>
+
+  <div class="absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-blue-700/40 blur-[220px]"></div>
+  <div class="absolute -right-40 bottom-0 h-[32rem] w-[32rem] rounded-full bg-cyan-500/30 blur-[240px]"></div>
+  <div class="absolute left-1/3 top-1/3 h-[26rem] w-[26rem] rounded-full bg-indigo-500/25 blur-[200px]"></div>
+
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90"></div>
+</div>
+
+<header class="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-white/10 border-b border-white/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+
+    <!-- LEFT: LOGO -->
+    <a href="/" class="flex items-center">
+      <img 
+        src="assest/wonder.webp" 
+        alt="Logo"
+        class="h-10 w-auto object-contain"
+      />
+    </a>
+
+    <!-- CENTER: ABOUT US (ALWAYS VISIBLE) -->
+    <div class="absolute left-1/2 -translate-x-1/2">
+      <a href="#about" class="text-sm uppercase tracking-widest hover:text-cyan-400 transition">
+        About Us
+      </a>
+    </div>
+
+    <!-- RIGHT: NAV (DESKTOP ONLY) -->
+<nav class="hidden md:flex items-center gap-4">
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Home
+  </a>
+  <a href="services.html" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Services
+  </a>
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Event
+  </a>
+  <a href="#" class="px-4 py-2 border border-white/30 rounded-full hover:text-cyan-400 hover:border-cyan-400 transition">
+    Contact
+  </a>
+</nav>
+
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="md:hidden focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+
+  <!-- MOBILE SLIDE MENU -->
+  <div id="mobileMenu"
+  class="fixed top-0 right-0 h-full w-72 bg-black/40 backdrop-blur-xl border-l border-white/20
+         transform translate-x-full transition-transform duration-300 z-50">
+
+  <div class="p-6 flex flex-col gap-8">
+
+    <!-- CLOSE BUTTON -->
+    <button id="closeBtn" class="self-end mb-1">
+      <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+
+    <!-- MENU LINKS -->
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>HOME</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="briefcase" class="w-5 h-5"></i>
+      <span>SERVICES</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="calendar" class="w-5 h-5"></i>
+      <span>EVENTS</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+      <i data-lucide="phone" class="w-5 h-5"></i>
+      <span>CONTACT US</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="relative pt-24 p-6">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- LEFT -->
+    <div class="space-y-4">
+
+      <h1 class="text-4xl font-semibold leading-tight">
+  Our World-Class
+  <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+    Services & Attractions
+  </span>
+</h1>
+
+<p class="mt-6 text-slate-300 max-w-xl leading-relaxed">
+  Afemai Wonder City offers a complete entertainment ecosystem designed for families,
+  friends, and guests of all ages. From high-energy amusement rides and modern cinema
+  experiences to premium lounges, restaurants, gaming arcades, and event venues,
+  every service is crafted to deliver comfort, excitement, and unforgettable memories
+  in one destination.
+</p>
+
+
+      <div class="flex gap-4 flex-row">
+        <a href="#attractions"
+           class="rounded-full bg-cyan-400 px-6 py-3 text-black font-medium hover:bg-cyan-500 transition">
+          Explore Attractions
+        </a>
+        <a href="#visit"
+           class="rounded-full border border-white/20 px-6 py-3 hover:bg-white/10 transition">
+          Gallery
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES WITH TABS ===== -->
+<section id="attractions" class="relative p-6">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- SECTION TITLE -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-4xl font-semibold mb-4">The Wonder City Services in real time</h2>
+      <p class="text-slate-300">
+        Designed for families, friends, and unforgettable moments - every corner
+        of Wonder City delivers excitement.
+      </p>
+    </div>
+
+    <!-- TABS -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <button class="tab-btn active" data-tab="entertainment">Entertainment</button>
+      <button class="tab-btn" data-tab="dining">Dining & Nightlife</button>
+      <button class="tab-btn" data-tab="family">Family & Kids</button>
+      <button class="tab-btn" data-tab="events">Events</button>
+    </div>
+
+    <!-- TAB CONTENT -->
+    <div class="tab-content">
+
+      <div id="entertainment" class="tab-panel grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  <!-- Amusement Park -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+    <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://media.istockphoto.com/id/656747186/video/carnival-fair-swing-ride-at-midway.mp4?s=mp4-640x640-is&k=20&c=waUdos9l5UNosg9ftZaBVcAB8nyLdXuCGZyPQh61Gok=" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Amusement Park</h3>
+      <p class="text-sm text-slate-400">Thrilling rides and attractions for all ages.</p>
+    </div>
+  </div>
+
+  <!-- Cinema -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/11/21/190117-887464159_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Cinema</h3>
+      <p class="text-sm text-slate-400">Immersive big-screen movie experience.</p>
+    </div>
+  </div>
+
+  <!-- Gaming Arcade -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2019/11/28/29602-376565661_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Gaming Arcade</h3>
+      <p class="text-sm text-slate-400">Modern games for kids, teens, and adults.</p>
+    </div>
+  </div>
+
+   <!-- Sports Bar -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+    <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/06/04/165713-833149534_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Sports Bar</h3>
+      <p class="text-sm text-slate-400">Live matches, drinks, and energy.</p>
+    </div>
+  </div>
+
+</div>
+
+
+     <div id="dining" class="tab-panel hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  <!-- Restaurant -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+    <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2017/06/17/10033-222013934_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Restaurant</h3>
+      <p class="text-sm text-slate-400">African & international dishes in style.</p>
+    </div>
+  </div>
+
+  <!-- Lounge -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2016/05/12/3190-166339081_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Luxury Lounge</h3>
+      <p class="text-sm text-slate-400">Relax, unwind, and enjoy premium vibes.</p>
+    </div>
+  </div>
+
+  <!-- Outdoor Bar -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2022/08/01/126334-735976704_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Outdoor Bar</h3>
+      <p class="text-sm text-slate-400">Drinks, music, and open-sky ambience.</p>
+    </div>
+  </div>
+
+</div>
+
+
+      <div id="family" class="tab-panel hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  <!-- Swimming Pool -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2022/11/22/140022-774032939_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Swimming Pool</h3>
+      <p class="text-sm text-slate-400">Fun, refreshing moments for everyone.</p>
+    </div>
+  </div>
+
+  <!-- Ice Cream & Pastries -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+    <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/07/21/172686-849651729_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Ice Cream & Pastries</h3>
+      <p class="text-sm text-slate-400">Sweet treats kids absolutely love.</p>
+    </div>
+  </div>
+
+</div>
+
+
+      <div id="events" class="tab-panel hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  <!-- Event Halls -->
+  <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
+   <div class="relative h-44">
+    <video class="absolute inset-0 w-full h-full object-cover" 
+           autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2024/12/12/246412_large.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div class="p-4 bg-gradient-to-r from-black via-blue-600 via-blue-200">
+      <h3 class="text-lg font-semibold">Event Halls</h3>
+      <p class="text-sm text-slate-400">Weddings, parties, corporate events.</p>
+    </div>
+  </div>
+
+</div>
+
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== VISITOR INFO ===== -->
+<section id="visit" class="relative py-24 px-6">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+
+    <div class="rounded-3xl bg-[#0b0d13]/90 backdrop-blur-xl border border-white/10 p-10">
+  <h3 class="text-3xl font-semibold mb-4">Plan Your Visit</h3>
+  <p class="text-slate-300 mb-6">
+    <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">Wonder City</span> is open all week and ready to give you a full day
+    of excitement and relaxation.
+  </p>
+
+  <ul class="space-y-3 text-slate-300 text-sm">
+    <li class="flex items-center gap-2">
+      <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i>
+      Open Daily: 9:00 AM - 10:00 PM
+    </li>
+    <li class="flex items-center gap-2">
+      <i data-lucide="map-pin" class="w-4 h-4 text-cyan-400"></i>
+      Auchi, Edo State, Nigeria
+    </li>
+    <li class="flex items-center gap-2">
+      <i data-lucide="ticket" class="w-4 h-4 text-cyan-400"></i>
+      Affordable entry & ride tickets
+    </li>
+  </ul>
+</div>
+
+
+    <div class="rounded-3xl bg-[#0b0d13]/90 backdrop-blur-xl border border-white/10 p-10">
+      <h3 class="text-3xl font-semibold mb-4">Why Choose Wonder City?</h3>
+      <p class="text-slate-300">
+        Safe environment, premium facilities, friendly staff,
+        and experiences designed to create lifelong memories.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="relative z-10 mx-auto px-6 py-12 bg-[#0b0d13] shadow-xl overflow-hidden">
+
+    <!-- Blue glows scattered around -->
+  <div class="absolute -left-40 top-20 h-[32rem] w-[32rem] rounded-full bg-blue-800/40 blur-[220px] mix-blend-screen"></div>
+  <div class="absolute -right-48 bottom-0 h-[34rem] w-[34rem] rounded-full bg-blue-600/35 blur-[240px] mix-blend-screen"></div>
+  <div class="absolute left-1/3 bottom-1/4 h-[28rem] w-[28rem] rounded-full bg-blue-500/30 blur-[200px] mix-blend-screen"></div>
+  <div class="absolute right-1/4 top-1/3 h-[24rem] w-[24rem] rounded-full bg-cyan-500/25 blur-[180px] mix-blend-screen"></div>
+
+  <!-- Edge vignette -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <!-- Left: Writeup -->
+<div class="md:col-span-1 text-center md:text-left">
+    <h2 class="text-2xl font-bold text-white mb-2">AFEMAI WONDER CITY</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">
+        The good side of life, where the memories begin
+    </p>
+
+    <!-- Logo -->
+    <img 
+        src="assest/wonder.webp" 
+        alt="Wonder City Logo" 
+        class="mx-auto md:mx-0 h-25 w-auto object-contain"
+    />
+</div>
+
+
+        <!-- Right: Links -->
+        <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-8">
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Events</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Attractions -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Attractions</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Amusement Park</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Cinema</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Lounge</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Swimming Pool</a></li>
+                </ul>
+            </div>
+
+            <!-- More Attractions -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">More Attractions</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Outdoor Bar</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Sports Bar</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Restaurant</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Pastries & Ice Cream</a></li>
+                </ul>
+            </div>
+
+            <!-- Event & Gaming -->
+            <div>
+                <h3 class="text-white font-semibold mb-4">Events & Gaming</h3>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-cyan-400 transition">Event Halls</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Gaming Arcade</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-cyan-400 transition">Auchi, Edo State</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Note -->
+    <div class="mt-12 text-center text-white/90 text-sm">
+        Nigeria <br>
+        &copy; 2026 Afemai Wonder City. All rights reserved.
+    </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.add('hidden'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.remove('hidden');
+    });
+  });
+</script>
+
+
+ <!-- SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenu.classList.add('translate-x-0');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenu.classList.remove('translate-x-0');
+    });
+  </script>
+
+
+<script>
+  lucide.createIcons();
+</script>
+
+
+<script>
+  // Play video on mobile tap
+  document.querySelectorAll('.video-card').forEach(card => {
+    const video = card.querySelector('video');
+    const img = card.querySelector('img');
+
+    card.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        video.style.opacity = '1';
+        img.style.opacity = '0';
+      } else {
+        video.pause();
+        video.style.opacity = '0';
+        img.style.opacity = '1';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
