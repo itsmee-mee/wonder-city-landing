@@ -105,7 +105,7 @@
       <span>HOME</span>
     </a>
 
-    <a href="#" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
+    <a href="services.html" class="flex items-center gap-4 text-lg hover:text-cyan-400 transition">
       <i data-lucide="briefcase" class="w-5 h-5"></i>
       <span>SERVICES</span>
     </a>
@@ -190,7 +190,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
     <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+            muted loop playsinline>
       <source src="https://media.istockphoto.com/id/656747186/video/carnival-fair-swing-ride-at-midway.mp4?s=mp4-640x640-is&k=20&c=waUdos9l5UNosg9ftZaBVcAB8nyLdXuCGZyPQh61Gok=" type="video/mp4">
     </video>
   </div>
@@ -204,7 +204,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+            muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2023/11/21/190117-887464159_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -218,7 +218,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+            muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2019/11/28/29602-376565661_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -232,7 +232,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
     <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2023/06/04/165713-833149534_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -251,7 +251,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
     <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2017/06/17/10033-222013934_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -265,7 +265,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2016/05/12/3190-166339081_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -279,7 +279,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2022/08/01/126334-735976704_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -298,7 +298,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2022/11/22/140022-774032939_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -312,7 +312,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
     <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2023/07/21/172686-849651729_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -331,7 +331,7 @@
   <div class="group rounded-2xl overflow-hidden bg-[#11131a] border border-white/10">
    <div class="relative h-44">
     <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline>
+           muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2024/12/12/246412_large.mp4" type="video/mp4">
     </video>
   </div>
@@ -515,24 +515,33 @@
 
 
 <script>
-  // Play video on mobile tap
-  document.querySelectorAll('.video-card').forEach(card => {
-    const video = card.querySelector('video');
-    const img = card.querySelector('img');
+const videos = document.querySelectorAll('.tab-panel video');
 
-    card.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        video.style.opacity = '1';
-        img.style.opacity = '0';
-      } else {
-        video.pause();
-        video.style.opacity = '0';
-        img.style.opacity = '1';
-      }
-    });
+videos.forEach(video => {
+  // play on hover
+  video.parentElement.addEventListener('mouseenter', () => {
+    video.play().catch(() => {});
   });
+  
+  // pause on hover leave
+  video.parentElement.addEventListener('mouseleave', () => {
+    if (!video.dataset.clicked) video.pause();
+  });
+
+  // toggle play/pause on click
+  video.parentElement.addEventListener('click', () => {
+    if (video.paused) {
+      video.play().catch(() => {});
+      video.dataset.clicked = true; // mark as clicked
+    } else {
+      video.pause();
+      video.dataset.clicked = false;
+    }
+  });
+});
 </script>
+
+
 
 </body>
 </html>
